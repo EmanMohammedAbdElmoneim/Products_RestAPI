@@ -4,7 +4,6 @@ const products_controller = require('./products-controller')
 
 const app = express();
 app.use(bodyParser.json())
- console.log('mina')
 // TODO -> end points:
 
 
