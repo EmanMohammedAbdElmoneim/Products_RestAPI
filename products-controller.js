@@ -22,7 +22,6 @@ const deleteProduct = (req,res) => {
     res.send({message : "Delete Complete"});
 };
 
-
 // export handlers
 module.exports = {
     deleteProduct,
