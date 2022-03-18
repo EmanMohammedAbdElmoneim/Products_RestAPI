@@ -14,8 +14,12 @@ let products = [{
 ]
 
 // TODO -> end points handlers:
-
+const getAllProducts =(req , res) => {
+    return res.send(products);
+};
 
 
 // export handlers
-module.exports = {}
+module.exports = {
+    getAllProducts,
+}
