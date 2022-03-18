@@ -26,3 +26,4 @@ const deleteProduct = (req,res) => {
 module.exports = {
     deleteProduct,
 };
+
