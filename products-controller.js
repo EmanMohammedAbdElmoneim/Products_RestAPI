@@ -12,10 +12,29 @@ let products = [{
     category:'Phones & Tablets'
 }
 ]
+//Test Case
+/*{
+    "smallDescription": "Nike Air Max Terrascape 90",    
+    "price": 5899.00,
+    "category":"Sports"
+}*/
 
 // TODO -> end points handlers:
-
+const createProduct = (req, res)=>{
+    const product = {
+        smallDescription: req.body.smallDescription,
+        code: (parseInt(products[products.length-1].code)+1).toString(),
+        price: req.body.price,
+        category : req.body.category
+    };
+    console.log(product);
+    products.push(product);
+    res.status(200).send(`Product Added Successfully, Code: ${product.code}`);
+    console.log(products);
+}
 
 
 // export handlers
-module.exports = {}
+module.exports = {
+    createProduct,    
+}
