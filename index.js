@@ -9,8 +9,8 @@ app.use(express.json());
 // TODO -> end points:
 app.post('/products', products_controller.createProduct);
 
+app.get('/products/:category', products_controller.getByCategory);
 
 app.listen(
     PORT,
     ()=> console.log(`Server running on http://localhost:${PORT}`))
-

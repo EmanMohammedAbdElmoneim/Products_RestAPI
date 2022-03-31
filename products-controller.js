@@ -20,6 +20,7 @@ let products = [{
 }*/
 
 // TODO -> end points handlers:
+
 const createProduct = (req, res)=>{
     const product = {
         smallDescription: req.body.smallDescription,
@@ -31,10 +32,27 @@ const createProduct = (req, res)=>{
     products.push(product);
     res.status(200).send(`Product Added Successfully, Code: ${product.code}`);
     console.log(products);
+
+const getByCategory = (req, res)=>{
+    let productsByCategory = []
+    const category = req.params.category;
+    products.forEach((i)=>{
+        if(i.category===category){
+            productsByCategory.push(i);
+        }
+    })
+    if(productsByCategory.length==0){
+        res.status(404).send(`Error: cateogry '${category}' not found`);
+    }
+    else{
+        res.status(200).send(productsByCategory);
+    }
+
 }
 
 
 // export handlers
 module.exports = {
-    createProduct,    
+    createProduct,
+    getByCategory,
 }
