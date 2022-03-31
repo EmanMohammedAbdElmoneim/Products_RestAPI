@@ -4,9 +4,11 @@ const products_controller = require('./products-controller')
 const PORT = 8080
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
 // TODO -> end points:
+app.post('/products', products_controller.createProduct);
+
 app.get('/products/:category', products_controller.getByCategory);
 
 app.listen(
