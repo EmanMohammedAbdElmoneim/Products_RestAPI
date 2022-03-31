@@ -41,13 +41,13 @@ const getByCategory = (req, res)=>{
             productsByCategory.push(i);
         }
     })
-    if(productsByCategory.length==0){
-        res.status(404).send(`Error: cateogry '${category}' not found`);
-    }
-    else{
-        res.status(200).send(productsByCategory);
-    }
-
+//     if(productsByCategory.length==0){
+//         res.status(404).send(`Error: cateogry '${category}' not found`);
+//     }
+//     else{
+//         res.status(200).send(productsByCategory);
+//     }
+    res.status(200).send(productsByCategory);
 }
 
 
