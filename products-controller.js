@@ -34,20 +34,23 @@ const createProduct = (req, res)=>{
     console.log(products);
 
 const getByCategory = (req, res)=>{
-    let productsByCategory = []
+//     let productsByCategory = []
     const category = req.params.category;
-    products.forEach((i)=>{
-        if(i.category===category){
-            productsByCategory.push(i);
-        }
-    })
+    let productsByCategory = products.filter(product => product.category === category)
+    res.status(200).send(productsByCategory);
+    
+//     products.forEach((i)=>{
+//         if(i.category===category){
+//             productsByCategory.push(i);
+//         }
+//     })
 //     if(productsByCategory.length==0){
 //         res.status(404).send(`Error: cateogry '${category}' not found`);
 //     }
 //     else{
 //         res.status(200).send(productsByCategory);
 //     }
-    res.status(200).send(productsByCategory);
+    
 }
 
 
