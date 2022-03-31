@@ -14,8 +14,24 @@ let products = [{
 ]
 
 // TODO -> end points handlers:
-
+const getByCategory = (req, res)=>{
+    let productsByCategory = []
+    const category = req.params.category;
+    products.forEach((i)=>{
+        if(i.category===category){
+            productsByCategory.push(i);
+        }
+    })
+    if(productsByCategory.length==0){
+        res.status(404).send(`Error: cateogry '${category}' not found`);
+    }
+    else{
+        res.status(200).send(productsByCategory);
+    }
+}
 
 
 // export handlers
-module.exports = {}
+module.exports = {
+    getByCategory,
+}
