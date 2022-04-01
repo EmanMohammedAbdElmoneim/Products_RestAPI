@@ -27,7 +27,19 @@ let products = [{
 
 
 
-// TODO -> end points handlers:
+update_handler
+// update Handler
+const updateHandler = (req,res)=>{
+   var index = products.findIndex((product) => product.code === req.params.code)
+   // check if product exist or not
+   if (index !== -1)
+    {
+        products[index] = req.body
+        res.send(products[index]) 
+    }
+    else
+      res.status(404).send({error: 'product code is not found!'})
+}
 
 
 const getAllProducts =(req , res) => {
@@ -87,14 +99,15 @@ const highToLow = (req, res) =>{
     products.sort((a, b) => (a.price > b.price ? -1 : 1));
     //console.log(products);
      res.send(products); 
+  
 // export handlers
 module.exports = {
-
+   updateHandler,
     lowToHigh,
     highToLow,
   deleteProduct,
     getAllProducts,
     createProduct,
-    getByCategory,
+    getByCategory
 };
 
