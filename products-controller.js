@@ -10,6 +10,12 @@ let products = [{
     code: '2502',
     price: 2074.00,
     category:'Phones & Tablets'
+},
+{
+    smallDescription: 'Infinix Smart 6 - 6.6-inch 32GB/3GB Dual SIM Mobile Phone-Quetzal Cyan',
+    code: '2502',
+    price: 1074.00,
+    category:'Phones & Tablets'
 }
 ]
 //Test Case
@@ -22,6 +28,7 @@ let products = [{
 
 
 // TODO -> end points handlers:
+
 
 const getAllProducts =(req , res) => {
     return res.send(products);
@@ -65,14 +72,29 @@ const deleteProduct = (req,res) => {
     const id = req.params.id;
     products = products.filter((product) => product.code !== id);
     res.send({message : "Delete Complete"});
+
 };
 
+  
+const lowToHigh = (req , res) =>{
+ 
+ products.sort((a, b) => (a.price > b.price ? 1 : -1));
+ //console.log(products);
+  res.send(products);
+};
+
+const highToLow = (req, res) =>{
+    products.sort((a, b) => (a.price > b.price ? -1 : 1));
+    //console.log(products);
+     res.send(products); 
 // export handlers
 module.exports = {
-    deleteProduct,
+
+    lowToHigh,
+    highToLow,
+  deleteProduct,
     getAllProducts,
     createProduct,
     getByCategory,
-
 };
 
