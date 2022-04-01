@@ -19,6 +19,8 @@ let products = [{
     "category":"Sports"
 }*/
 
+
+
 // TODO -> end points handlers:
 
 const getAllProducts =(req , res) => {
@@ -59,13 +61,18 @@ const getByCategory = (req, res)=>{
 }
 
 
+const deleteProduct = (req,res) => {
+    const id = req.params.id;
+    products = products.filter((product) => product.code !== id);
+    res.send({message : "Delete Complete"});
+};
 
 // export handlers
 module.exports = {
-
+    deleteProduct,
     getAllProducts,
-
     createProduct,
     getByCategory,
 
-}
+};
+
