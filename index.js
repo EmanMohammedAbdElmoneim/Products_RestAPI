@@ -7,9 +7,13 @@ const app = express();
 app.use(express.json());
 
 // TODO -> end points:
+
+app.get("/products", products_controller.getAllProducts);
+
 app.post('/products', products_controller.createProduct);
 
 app.get('/products/:category', products_controller.getByCategory);
+
 
 app.listen(
     PORT,

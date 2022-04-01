@@ -21,6 +21,11 @@ let products = [{
 
 // TODO -> end points handlers:
 
+const getAllProducts =(req , res) => {
+    return res.send(products);
+};
+
+
 const createProduct = (req, res)=>{
     const product = {
         smallDescription: req.body.smallDescription,
@@ -54,8 +59,13 @@ const getByCategory = (req, res)=>{
 }
 
 
+
 // export handlers
 module.exports = {
+
+    getAllProducts,
+
     createProduct,
     getByCategory,
+
 }
