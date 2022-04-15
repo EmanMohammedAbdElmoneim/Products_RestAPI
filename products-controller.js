@@ -27,7 +27,6 @@ let products = [{
 
 
 
-update_handler
 // update Handler
 const updateHandler = (req,res)=>{
    var index = products.findIndex((product) => product.code === req.params.code)
