@@ -28,10 +28,10 @@ app.post('/products', products_controller.createProduct);
 app.get('/products/:category', products_controller.getByCategory);
 
 //order by price (assending)
-app.get("/products", products_controller.lowToHigh);
+app.get("/products/lth", products_controller.lowToHigh);
 
 //order by price (descending)
-app.get('/products',products_controller.highToLow);
+app.get('/products/htl',products_controller.highToLow);
 
 
 app.listen(
