@@ -6,6 +6,6 @@ const app = express();
 app.use(bodyParser.json())
 // TODO -> end points:
 //products_controller.lowToHigh();
-app.get("/products", products_controller.lowToHigh);
-app.get('/products',products_controller.highToLow);
+app.get("/products/lth", products_controller.lowToHigh);
+app.get('/products/htl',products_controller.highToLow);
 app.listen(8080,()=> console.log('Server running'))
