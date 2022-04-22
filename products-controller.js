@@ -10,12 +10,6 @@ let products = [{
     code: '2502',
     price: 2074.00,
     category:'Phones & Tablets'
-},
-{
-    smallDescription: 'Infinix Smart 6 - 6.6-inch 32GB/3GB Dual SIM Mobile Phone-Quetzal Cyan',
-    code: '2502',
-    price: 1074.00,
-    category:'Phones & Tablets'
 }
 ]
 
