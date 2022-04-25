@@ -1,23 +1,25 @@
-const Router = require('express').Router
-const productRouter = Router()
-const productController = require('../controllers/Product_Controller.js')
+const { Router } = require('express');
+const productController = require('../controllers/Product_Controller');
+const productRouter = Router();
+
+//ps: '/' --> http://localhost:8080/products/
 
 // insert product
-productRouter.post('/', ()=>{})
+productRouter.post('/', productController.insertProduct);
 // get all products
-productRouter.get('/', ()=>{})
+productRouter.get('/', productController.getAllProducts);
 // get product by id
-productRouter.get('/:id', ()=>{})
+productRouter.get('/:id', productController.getById);
 // assending order
-productRouter.get('/lth', ()=>{})
+productRouter.get('/lth', productController.sortAssendingly);
 // descending order
-productRouter.get('/htl', ()=>{})
+productRouter.get('/htl',  productController.sortDescendingly);
 // filter by brand
-productRouter.get('/:brand', ()=>{})
+productRouter.get('/:brand', productController.filterByBrand);
 // update product
-productRouter.put('/:id', ()=>{})
+productRouter.put('/:id', productController.updateProduct);
 // delete product
-productRouter.delete('/:id', ()=>{})
+productRouter.delete('/:id', productController.deleteProduct);
 
 
-module.exports = {productRouter}
+module.exports = {productRouter,};
