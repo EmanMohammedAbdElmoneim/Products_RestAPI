@@ -6,6 +6,14 @@ const productRouter = Router();
 
 // insert product
 productRouter.post('/', productController.insertProduct);
+// filter by category
+productRouter.get('/filterByCategory/:category', productController.filterByCategory);
+// filter by category and color
+productRouter.get('/filterByCategoryAndColor/:category/:color', productController.filterByCategoryAndColor);
+// filter by category and size
+productRouter.get('/filterByCategoryAndSize/:category/:size', productController.filterByCategoryAndSize);
+// filter by category and color and size
+productRouter.get('/filterByCategoryAndColorAndSize/:category/:color/:size', productController.filterByCategoryAndColorAndSize);
 // get all products
 productRouter.get('/', productController.getAllProducts);
 // get product by id
