@@ -15,7 +15,7 @@ productRouter.get('/lth', productController.sortAssendingly);
 // descending order
 productRouter.get('/htl',  productController.sortDescendingly);
 // filter by brand
-productRouter.get('/:brand', productController.filterByBrand);
+productRouter.get('/filterByBrand/:brand', productController.filterByBrand);
 // update product
 productRouter.put('/:id', productController.updateProduct);
 // delete product
