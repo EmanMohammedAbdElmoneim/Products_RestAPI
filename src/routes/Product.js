@@ -6,6 +6,14 @@ const productRouter = Router();
 
 // insert product
 productRouter.post('/', productController.insertProduct);
+// filter by category
+productRouter.get('/filterByCategory/:category', productController.filterByCategory);
+// filter by category and color
+productRouter.get('/filterByCategoryAndColor/:category/:color', productController.filterByCategoryAndColor);
+// filter by category and size
+productRouter.get('/filterByCategoryAndSize/:category/:size', productController.filterByCategoryAndSize);
+// filter by category and color and size
+productRouter.get('/filterByCategoryAndColorAndSize/:category/:color/:size', productController.filterByCategoryAndColorAndSize);
 // get all products
 productRouter.get('/', productController.getAllProducts);
 // get product by id
@@ -15,11 +23,11 @@ productRouter.get('/lth', productController.sortAssendingly);
 // descending order
 productRouter.get('/htl',  productController.sortDescendingly);
 // filter by brand
-productRouter.get('/filterByBrand/:brand', productController.filterByBrand);
+productRouter.get('/brand/:brand', productController.filterByBrand);
 // filter by brand with category
-productRouter.get('/brandWithCategory/:brand/:category', productController.filterByBrand);
+productRouter.get('/brandwithcategory/:brand/:category', productController.filterByBrandAndCategory);
 // update product
-productRouter.put('/:id', productController.updateProduct);
+productRouter.put('/update/:id', productController.updateProduct);
 // delete product
 productRouter.delete('/:id', productController.deleteProduct);
 
