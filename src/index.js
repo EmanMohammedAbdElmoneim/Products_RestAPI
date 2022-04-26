@@ -1,5 +1,5 @@
 const {app} = require('./app')
-const PORT = 8080
+const PORT = 3000
 const mongoose = require('mongoose')
 
 
