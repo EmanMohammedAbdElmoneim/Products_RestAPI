@@ -7,10 +7,10 @@ const { Product } = require('../models/Product');
     try{ 
         const id =  req.params.id
         const product = await Product.findById({_id : id})
-        res.status(200).json(product)
+        res.status(200).send(product)
     }
     catch(err){  
-         res.status(400).json(err)
+         res.status(400).send(err)
     }
  };
  const filterByBrand =async (req,res)=>{};
