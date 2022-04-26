@@ -3,8 +3,13 @@ const { Product } = require('../models/Product');
 
  const insertProduct = (req, res)=>{};
  const getAllProducts = (req, res) => {
-    const products = app.find({});
-    res.status(200).send(products);
+    try{
+        const products = Product.find({});
+        res.status(200).send(products);
+    }
+    catch(e){
+        res.status(400).send(e);
+    }
 };
  const getById =async (req,res)=>{};
  const filterByBrand =async (req,res)=>{};
