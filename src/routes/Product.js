@@ -9,7 +9,7 @@ productRouter.post('/', productController.insertProduct);
 // get all products
 productRouter.get('/', productController.getAllProducts);
 // get product by id
-productRouter.get('/:id', productController.getById);
+productRouter.get('/getById/:id', productController.getById);
 // assending order
 productRouter.get('/lth', productController.sortAssendingly);
 // descending order
