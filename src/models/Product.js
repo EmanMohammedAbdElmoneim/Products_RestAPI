@@ -23,14 +23,14 @@ const productSchema = new Schema({
         required: true,
     },
     brand: {
-    type: String,
-    required: false,
+        type: String,
+        required: false,
     },
 
 });
 
 //create model
-const User = model('Product', productSchema);
+const Product = model('Product', productSchema);
 module.exports = {
     Product,
 };

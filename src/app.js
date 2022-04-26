@@ -2,7 +2,7 @@ const express = require('express');
 const { productRouter } = require('./routes/Product');
 const app = express();
 
-app.use(express.json);
+app.use(express.json());
 
 //middleware
 app.use((req, res, next) => {
