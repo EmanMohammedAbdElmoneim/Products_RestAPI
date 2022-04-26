@@ -3,7 +3,7 @@ const { Product } = require('../models/Product');
 
  const insertProduct = (req, res)=>{};
  const getAllProducts = (req, res) => {
-    const products = await productController.find({});
+    const products = app.find({});
     res.status(200).send(products);
 };
  const getById =async (req,res)=>{};

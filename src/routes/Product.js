@@ -7,7 +7,7 @@ const productRouter = Router();
 // insert product
 productRouter.post('/', productController.insertProduct);
 // get all products
-productRouter.get('/', productController.getAllProducts);
+productRouter.get('/products', productController.getAllProducts);
 // get product by id
 productRouter.get('/:id', productController.getById);
 // assending order
