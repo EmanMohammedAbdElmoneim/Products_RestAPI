@@ -53,6 +53,7 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
        res.status(400).send(error)
     }
 }
+getAllProducts
  const getAllProducts = async (req, res) => {
     try{
         const products = await Product.find({});
@@ -62,11 +63,27 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
         res.status(400).send(e);
     }
 };
+//sort price High to Low
+const sortDescendingly = async (req, res) => {
+    try {
+       const productsHtoL = await  Product.find({}).sort({price:-1})
+       res.status(200).send(productsHtoL)
+    } catch (error) {
+       res.status(400).send(error)
+    }
+}
+//sort price Low to High
+const sortAssendingly = async (req, res) => {
+    try {
+        const productsLtoH = await  Product.find({}).sort({price:1})
+        res.status(200).send(productsLtoH)
+     } catch (error) {
+        res.status(400).send(error)
+     }
+}
 
  const getById =async (req,res)=>{};
  const filterByBrand =async (req,res)=>{};
- const sortDescendingly = async(req , res) =>{};
- const sortAssendingly = async(req, res) =>{};
  const updateProduct = async (req,res)=>{};
  const deleteProduct = async (req,res) => {};
 
