@@ -53,7 +53,6 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
        res.status(400).send(error)
     }
 }
-getAllProducts
  const getAllProducts = async (req, res) => {
     try{
         const products = await Product.find({});
