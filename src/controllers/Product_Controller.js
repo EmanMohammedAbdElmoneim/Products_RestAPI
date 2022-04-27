@@ -128,6 +128,8 @@ const sortAssendingly = async (req, res) => {
       const product = await Product.findById({_id : id})
       if (req.body.description != null)
             product.description = req.body.description
+      if (req.body.price != null)
+            product.price = req.body.price
       if (req.body.category != null)
             product.category = req.body.category
       if (req.body.color != null)
