@@ -17,7 +17,7 @@ productRouter.get('/filterByCategoryAndColorAndSize/:category/:color/:size', pro
 // get all products
 productRouter.get('/', productController.getAllProducts);
 // get product by id
-productRouter.get('/:id', productController.getById);
+productRouter.get('/getById/:id', productController.getById);
 // assending order
 productRouter.get('/filterByprice/lth', productController.sortAssendingly);
 // descending order

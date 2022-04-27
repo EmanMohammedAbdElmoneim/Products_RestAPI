@@ -53,6 +53,20 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
        res.status(400).send(error)
     }
 }
+
+ 
+ const getById =async (req,res)=>{
+    try{ 
+        const id =  req.params.id
+        const product = await Product.findById({_id : id})
+        res.status(200).send(product)
+    }
+    catch(err){  
+         res.status(400).send(err)
+    }
+ };
+
+
  const getAllProducts = async (req, res) => {
     try{
         const products = await Product.find({});
@@ -81,7 +95,6 @@ const sortAssendingly = async (req, res) => {
      }
 }
 
- const getById =async (req,res)=>{};
 
  const filterByBrand =async (req,res)=>{
     try {
@@ -138,6 +151,7 @@ const sortAssendingly = async (req, res) => {
         res.status(400).send(e);
     }
  };
+
 
 
  // export handlers
