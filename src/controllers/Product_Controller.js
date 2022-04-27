@@ -53,8 +53,36 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
        res.status(400).send(error)
     }
 }
- const getAllProducts = async (req , res) => {};
+ const getAllProducts = async (req, res) => {
+    try{
+        const products = await Product.find({});
+        res.status(200).send(products);
+    }
+    catch(e){
+        res.status(400).send(e);
+    }
+};
+//sort price High to Low
+const sortDescendingly = async (req, res) => {
+    try {
+       const productsHtoL = await  Product.find({}).sort({price:-1})
+       res.status(200).send(productsHtoL)
+    } catch (error) {
+       res.status(400).send(error)
+    }
+}
+//sort price Low to High
+const sortAssendingly = async (req, res) => {
+    try {
+        const productsLtoH = await  Product.find({}).sort({price:1})
+        res.status(200).send(productsLtoH)
+     } catch (error) {
+        res.status(400).send(error)
+     }
+}
+
  const getById =async (req,res)=>{};
+
  const filterByBrand =async (req,res)=>{
     try {
        const docs = await Product.find({brand:req.params.brand})
@@ -76,10 +104,41 @@ const filterByCategoryAndColorAndSize = async (req, res) => {
           res.status(400).send(error)
        }
       };
-    const sortDescendingly = async(req , res) =>{};
- const sortAssendingly = async(req, res) =>{};
- const updateProduct = async (req,res)=>{};
- const deleteProduct = async (req,res) => {};
+
+ 
+ 
+
+
+ const updateProduct = async (req,res)=>{
+    try{ 
+      const id = req.params.id
+      const product = await Product.findById({_id : id})
+      if (req.body.description != null)
+            product.description = req.body.description
+      if (req.body.category != null)
+            product.category = req.body.category
+      if (req.body.color != null)
+            product.color = req.body.color
+      if (req.body.size != null)
+            product.size = req.body.size
+      if (req.body.brand != null)
+            product.brand = req.body.brand
+          product.save()
+          res.status(200).send(product)
+    }
+    catch(err){res.status(400).send(err)}
+ };
+  const deleteProduct = async (req,res) => {
+    try{
+        const productId = req.params.id;
+        const product = await Product.deleteOne({_id: productId});
+        res.status(200).send(product);
+    }
+    catch(e){
+        res.status(400).send(e);
+    }
+ };
+
 
  // export handlers
  module.exports = {

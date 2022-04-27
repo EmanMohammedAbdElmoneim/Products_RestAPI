@@ -19,9 +19,9 @@ productRouter.get('/', productController.getAllProducts);
 // get product by id
 productRouter.get('/:id', productController.getById);
 // assending order
-productRouter.get('/lth', productController.sortAssendingly);
+productRouter.get('/filterByprice/lth', productController.sortAssendingly);
 // descending order
-productRouter.get('/htl',  productController.sortDescendingly);
+productRouter.get('/filterByprice/htl', productController.sortDescendingly);
 // filter by brand
 productRouter.get('/brand/:brand', productController.filterByBrand);
 // filter by brand with category
