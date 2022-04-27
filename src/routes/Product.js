@@ -19,13 +19,15 @@ productRouter.get('/', productController.getAllProducts);
 // get product by id
 productRouter.get('/getById/:id', productController.getById);
 // assending order
-productRouter.get('/lth', productController.sortAssendingly);
+productRouter.get('/filterByprice/lth', productController.sortAssendingly);
 // descending order
-productRouter.get('/htl',  productController.sortDescendingly);
+productRouter.get('/filterByprice/htl', productController.sortDescendingly);
 // filter by brand
-productRouter.get('/:brand', productController.filterByBrand);
+productRouter.get('/brand/:brand', productController.filterByBrand);
+// filter by brand with category
+productRouter.get('/brandwithcategory/:brand/:category', productController.filterByBrandAndCategory);
 // update product
-productRouter.put('/:id', productController.updateProduct);
+productRouter.put('/update/:id', productController.updateProduct);
 // delete product
 productRouter.delete('/:id', productController.deleteProduct);
 
