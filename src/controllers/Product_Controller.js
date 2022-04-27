@@ -84,8 +84,26 @@ const sortAssendingly = async (req, res) => {
 
  const getById =async (req,res)=>{};
  const filterByBrand =async (req,res)=>{};
- const updateProduct = async (req,res)=>{};
- const deleteProduct = async (req,res) => {
+ const updateProduct = async (req,res)=>{
+    try{ 
+      const id = req.params.id
+      const product = await Product.findById({_id : id})
+      if (req.body.description != null)
+            product.description = req.body.description
+      if (req.body.category != null)
+            product.category = req.body.category
+      if (req.body.color != null)
+            product.color = req.body.color
+      if (req.body.size != null)
+            product.size = req.body.size
+      if (req.body.brand != null)
+            product.brand = req.body.brand
+          product.save()
+          res.status(200).send(product)
+    }
+    catch(err){res.status(400).send(err)}
+ };
+  const deleteProduct = async (req,res) => {
     try{
         const productId = req.params.id;
         const product = await Product.deleteOne({_id: productId});
