@@ -82,7 +82,33 @@ const sortAssendingly = async (req, res) => {
 }
 
  const getById =async (req,res)=>{};
- const filterByBrand =async (req,res)=>{};
+
+ const filterByBrand =async (req,res)=>{
+    try {
+       const docs = await Product.find({brand:req.params.brand})
+       res.status(200).send(docs)
+        
+    } catch (error) {
+       res.status(400).send(error)
+   
+    }
+   };
+   const filterByBrandAndCategory =async (req,res)=>{
+       try {
+          const docs =  await Product.find({
+              brand: {$eq: req.params.brand} ,
+              category: { $eq: req.params.category}
+            })
+          res.status(200).send(docs)
+       } catch (error) {
+          res.status(400).send(error)
+       }
+      };
+
+ 
+ 
+
+
  const updateProduct = async (req,res)=>{
     try{ 
       const id = req.params.id
@@ -113,12 +139,14 @@ const sortAssendingly = async (req, res) => {
     }
  };
 
+
  // export handlers
  module.exports = {
      insertProduct,
      getAllProducts,
      getById,
      filterByBrand,
+     filterByBrandAndCategory,
      updateProduct,
      deleteProduct,
      sortDescendingly,
